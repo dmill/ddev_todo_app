@@ -1,0 +1,9 @@
+<h1>Users</h1>
+
+<h2>Names</h2>
+<% @users.each do |user| %>
+  <p><%= user.first_name %> <%= user.last_name %></p>
+<% end %>
+
+
+<%= (1..1000).each {|i| p i} %>
