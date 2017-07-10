@@ -1,0 +1,5 @@
+<h1>All Todo Lists</h1>
+
+<% @todo_lists.each do |tl| %>
+  <p>Title: <%= tl.title %> | Status: <%= tl.status %></p>
+<% end %>
