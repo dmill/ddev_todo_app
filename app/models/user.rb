@@ -12,8 +12,6 @@ class User < ApplicationRecord
   validates :user_type, inclusion: { in: TYPES.keys,
     message: "%{value} is an invalid user type" }
 
-  validate :user_spamming
-
   def todo_list_count
     self.todo_lists.count
   end
