@@ -4,11 +4,31 @@
     <title>DdevTodoApp</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Actor" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div id="header">
+      <ul>
+        <li>
+          <%= image_tag("logo.png",class:'logo') %>
+          TODO
+        </li>
+        <li><span class="glyphicon glyphicon-heart"></span>Home</li>
+        <li>Username</li>
+        <li>Sign Out</li>
+      </ul>
+    </div>
+
+    <div id="body">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>
