@@ -1,0 +1,33 @@
+<h1>New User</h1>
+<%= form_for @user do |f| %>
+
+  <% if @user.errors.any? %>
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+  <p>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </p>
+  <p>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </p>
+  <p>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :dob %>
+    <%= f.date_select(:dob, 'start_year': Time.current.year-18, 'end_year': Time.current.year-120) %>
+  </p>
+  <p>
+    <%= f.label :user_type %>
+    <%= f.text_field :user_type %>
+  </p>
+  <%= f.submit 'Create User', class: 'myButton' %>
+<% end# form_for %>
