@@ -3,6 +3,5 @@
 <h2><%= @todo_list.title %></h2>
 <h3>Status: <%= @todo_list.status %></h3>
 
-<% @todo_list.todo_items.each do |tdi| %>
-  <p><%= tdi.summary %></p>
-<% end %>
+
+<%= render partial: "todo_items/index", locals: { todo_items: @todo_list.todo_items } %>

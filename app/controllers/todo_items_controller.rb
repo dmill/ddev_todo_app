@@ -1,4 +1,7 @@
 class TodoItemsController < ApplicationController
+
+  layout "items"
+
   def index
     @todo_items = TodoList.find(params[:todo_list_id]).todo_items
     filtered_items
