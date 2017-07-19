@@ -9,7 +9,8 @@ class TodoItemsController < ApplicationController
   end
 
   def show
-    @todo_item = TodoItem.find(params[:id])
+    # @todo_item = TodoItem.find(params[:id])
+    @todo_item = TodoList.find(params[:todo_list_id]).todo_items.find(params[:id])
   end
 
   private

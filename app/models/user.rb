@@ -2,7 +2,8 @@ class User < ApplicationRecord
   has_many :todo_list_users
   has_many :todo_lists, through: :todo_list_users
   has_many :todo_items
-  TYPES = {0 => "student", 1 => "instructor", 2 => "ta"}
+
+  enum user_type: ["student", "instructor", "ta"]
 
   validates_presence_of :email #:first_name, :last_name, :dob
   validates_associated :todo_items
