@@ -1,0 +1,4 @@
+<%= form_for @user, url: "/users/#{@user.id}/update_avatar", html: { multipart: true }, method: "patch" do |form| %>
+  <%= form.file_field :avatar %>
+  <%= form.submit %>
+<% end %>
