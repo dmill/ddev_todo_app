@@ -16,7 +16,15 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable, :rememberable, :validatable
 
+  after_create :send_welcome_email
+
   def todo_list_count
     self.todo_lists.count
+  end
+
+  private
+
+  def send_welcome_email
+    UserMailer.welcome_email(self).deliver_now
   end
 end
