@@ -22,9 +22,13 @@ class User < ApplicationRecord
     self.todo_lists.count
   end
 
+  def arbitrary_long_calculation
+    Rails.cache.fetch("long_calculation", expires_in: 30.minutes) { (1..100000000).reduce(:+) }
+  end
+
   private
 
   def send_welcome_email
-    UserMailer.welcome_email(self).deliver_now
+   10.times { UserMailer.welcome_email(self).deliver_later }
   end
 end
