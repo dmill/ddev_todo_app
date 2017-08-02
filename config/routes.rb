@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post "users/admin_create", to: "users#create"
   get "users/:id/new_avatar", to: "users#new_avatar"
 
-  resources :todo_lists, only: [:index, :show] do
+  resources :todo_lists, only: [:index, :show, :create] do
     resources :todo_items
   end
 

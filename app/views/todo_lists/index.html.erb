@@ -1,5 +1,18 @@
 <h1>All Todo Lists</h1>
 
-<% @todo_lists.each do |tl| %>
-  <p>Title: <%= tl.title %> | Status: <%= tl.status %></p>
+<h3>New List:</h3>
+<%= form_tag "#" , class: "new-list-form" do %>
+  <%= label_tag(:title, "What's your list called?") %>
+  <%= text_field_tag("todo_list[title]") %>
+  <%= submit_tag "Create List", class: "new-list-submit"  %>
 <% end %>
+<br>
+<br>
+<h3>Lists</h3>
+<div class="lists">
+  <% @todo_lists.each do |tl| %>
+    <p>Title: <%= tl.title %> | Status: <%= tl.status %></p>
+  <% end %>
+</div>
+
+ <%= javascript_include_tag "todo_lists/index" %>

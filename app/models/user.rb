@@ -23,7 +23,7 @@ class User < ApplicationRecord
   end
 
   def arbitrary_long_calculation
-    Rails.cache.fetch("long_calculation", expires_in: 30.minutes) { (1..100000000).reduce(:+) }
+    # Rails.cache.fetch("long_calculation", expires_in: 30.minutes) { (1..100000000).reduce(:+) }
   end
 
   private
